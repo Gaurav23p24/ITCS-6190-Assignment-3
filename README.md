@@ -270,7 +270,9 @@ pip3 install Flask boto3
    http://YOUR_PUBLIC_IP_ADDRESS:5000
    ```
 
-**Screenshot:** ![Dashboard](implementation_ss/11.png)
+**Screenshots:** 
+- ![Dashboard Part 1](implementation_ss/11.png)
+- ![Dashboard Part 2](implementation_ss/12.png)
 
 ---
 
@@ -351,7 +353,8 @@ ITCS-6190-Assignment-3/
     ├── 8.png                   # Glue crawler
     ├── 9.png                   # Athena queries
     ├── 10.png                  # EC2 instance
-    └── 11.png                  # Dashboard
+    ├── 11.png                  # Dashboard Part 1
+    └── 12.png                  # Dashboard Part 2
 ```
 
 ---
