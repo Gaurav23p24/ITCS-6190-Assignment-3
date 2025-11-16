@@ -1,21 +1,8 @@
-# 🚀 AWS Data Processing Pipeline - ITCS 6190 Assignment 3
+# AWS Data Processing Pipeline - ITCS 6190 Assignment 3
 
 **Author:** Gaurav Patel  
 **Student ID:** 801426641  
 **Course:** ITCS 6190 - Cloud Computing for Data Analytics
-
----
-
-## 📋 Table of Contents
-
-- [Overview](#overview)
-- [Architecture](#architecture)
-- [Prerequisites](#prerequisites)
-- [Implementation Guide](#implementation-guide)
-- [Athena Queries](#athena-queries)
-- [Results & Dashboard](#results--dashboard)
-- [Project Structure](#project-structure)
-- [Important Notes](#important-notes)
 
 ---
 
