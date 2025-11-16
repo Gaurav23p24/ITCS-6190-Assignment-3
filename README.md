@@ -447,4 +447,3 @@ Course: ITCS 6190 - Cloud Computing for Data Analytics
 [![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
 
 </div>
-
