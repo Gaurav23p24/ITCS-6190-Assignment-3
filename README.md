@@ -166,9 +166,9 @@ Create three IAM roles with appropriate permissions:
 
 #### 🚀 Start Processing
 
-Upload `orders.csv` to the `raw/` folder in your S3 bucket. This automatically triggers the Lambda function.
+Upload your CSV file (e.g., `people_100000.csv`) to the `raw/` folder in your S3 bucket. This automatically triggers the Lambda function.
 
-**Screenshot:** ![Upload Orders CSV](implementation_ss/7.png)
+**Screenshot:** ![Upload CSV File](implementation_ss/7.png)
 
 ---
 
@@ -176,10 +176,10 @@ Upload `orders.csv` to the `raw/` folder in your S3 bucket. This automatically t
 
 1. Navigate to **AWS Glue** → **Crawlers** → **Create crawler**
 2. **Configuration**:
-   - **Name**: `orders_processed_crawler`
+   - **Name**: `processed_people_crawler`
    - **Data source**: Point to `processed/` folder in S3
    - **IAM Role**: `Glue-S3-Crawler-Role`
-   - **Database**: Create new database `orders_db`
+   - **Database**: Create new database `people_db`
 3. **Run the crawler** to create the data catalog table
 
 **Screenshot:** ![Glue Crawler](implementation_ss/8.png)
@@ -190,7 +190,7 @@ Upload `orders.csv` to the `raw/` folder in your S3 bucket. This automatically t
 
 1. Navigate to **Amazon Athena**
 2. Set **Data source**: `AwsDataCatalog`
-3. Set **Database**: `orders_db`
+3. Set **Database**: `people_db`
 
 **Screenshot:** ![Athena Setup](implementation_ss/9.png)
 
@@ -250,7 +250,7 @@ pip3 install Flask boto3
 3. **Update configuration variables**:
    ```python
    AWS_REGION = 'us-east-1'  # Your AWS region
-   ATHENA_DATABASE = 'orders_db'  # Your Glue database name
+   ATHENA_DATABASE = 'people_db'  # Your Glue database name
    S3_OUTPUT_LOCATION = 's3://your-athena-results-bucket/'  # Athena results location
    ```
 
@@ -338,7 +338,7 @@ ITCS-6190-Assignment-3/
 ├── README.md                    # This file
 ├── LambdaFunction.py            # Lambda function code
 ├── EC2InstanceNANOapp.py       # Flask web application
-├── orders.csv                   # Sample input data
+├── people_100000.csv            # Sample input data
 ├── A3_itcs6190_v4.0.pdf        # Assignment specification
 └── implementation_ss/          # Implementation screenshots
     ├── 1.png                   # S3 bucket structure
