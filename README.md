@@ -278,59 +278,37 @@ pip3 install Flask boto3
 
 The following SQL queries are executed in Amazon Athena and displayed on the dashboard:
 
-### 1. Total Sales by Customer
+### 1. Total Record Count
 ```sql
-SELECT 
-    customer_id,
-    SUM(order_amount) AS total_sales
-FROM orders_processed
-GROUP BY customer_id
-ORDER BY total_sales DESC;
+SELECT COUNT(*) as total_records 
+FROM processed_people_100000_csv;
 ```
 
-### 2. Monthly Order Volume and Revenue
+### 2. Sample Data
 ```sql
-SELECT 
-    DATE_FORMAT(order_date, '%Y-%m') AS month,
-    COUNT(*) AS order_count,
-    SUM(order_amount) AS total_revenue
-FROM orders_processed
-GROUP BY DATE_FORMAT(order_date, '%Y-%m')
-ORDER BY month;
+SELECT * 
+FROM processed_people_100000_csv 
+LIMIT 50;
 ```
 
-### 3. Order Status Dashboard
+### 3. Gender Distribution
 ```sql
 SELECT 
-    order_status,
-    COUNT(*) AS order_count,
-    SUM(order_amount) AS total_amount
-FROM orders_processed
-GROUP BY order_status;
+    sex, 
+    COUNT(*) as count 
+FROM processed_people_100000_csv 
+GROUP BY sex 
+ORDER BY count DESC;
 ```
 
-### 4. Average Order Value (AOV) per Customer
+### 4. Top Job Titles
 ```sql
 SELECT 
-    customer_id,
-    AVG(order_amount) AS average_order_value,
-    COUNT(*) AS order_count
-FROM orders_processed
-GROUP BY customer_id
-ORDER BY average_order_value DESC;
-```
-
-### 5. Top 10 Largest Orders in February 2025
-```sql
-SELECT 
-    order_id,
-    customer_id,
-    order_date,
-    order_amount,
-    order_status
-FROM orders_processed
-WHERE DATE_FORMAT(order_date, '%Y-%m') = '2025-02'
-ORDER BY order_amount DESC
+    job_title, 
+    COUNT(*) as count 
+FROM processed_people_100000_csv 
+GROUP BY job_title 
+ORDER BY count DESC 
 LIMIT 10;
 ```
 
@@ -346,11 +324,10 @@ The EC2-hosted dashboard displays all query results in a clean, organized format
 - **Error handling** for failed queries
 
 **Dashboard Features:**
-- Total Sales by Customer visualization
-- Monthly revenue trends
-- Order status breakdown
-- Customer analytics
-- Top orders display
+- Total record count display
+- Sample data preview (50 records)
+- Gender distribution analysis
+- Top job titles statistics
 
 ---
 
